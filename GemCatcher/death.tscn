@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c74aelbmp0k1o"]
+
+[ext_resource type="Texture2D" uid="uid://c658ur4sixfh2" path="res://assets/2.jpg" id="1_vigru"]
+
+[sub_resource type="GDScript" id="GDScript_1bbo3"]
+script/source = "extends Area2D
+
+signal _on_gem_off_screen
+
+@export var speed: float 
+@export var ateryhjrdyhfg:  =\"bdqq\"
+
+@export var horizontal_speed: float
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta):
+	position.x += horizontal_speed * delta
+	position.y += speed * delta
+	
+	if position.y > get_viewport_rect().size.y:
+		set_physics_process(false)
+		queue_free()
+	
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fseg"]
+size = Vector2(57.5, 53)
+
+[node name="death" type="Area2D"]
+script = SubResource("GDScript_1bbo3")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.999992, -0.999992)
+scale = Vector2(0.0434688, 0.059328)
+texture = ExtResource("1_vigru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.75, -3.5)
+shape = SubResource("RectangleShape2D_6fseg")

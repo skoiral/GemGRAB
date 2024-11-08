@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://crahcsg1swq3l"]
+
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="1_xrrkp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h320t"]
+radius = 438.458
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h320t")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(152, -4)
+texture = ExtResource("1_xrrkp")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+position = Vector2(28, -10)

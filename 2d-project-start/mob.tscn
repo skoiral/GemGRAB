@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpvr2cduo1yq3"]
+
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_hvhvv"]
+[ext_resource type="Script" path="res://mob.gd" id="1_wqaxb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sm88q"]
+radius = 50.0899
+
+[node name="mob" type="CharacterBody2D"]
+position = Vector2(435, 184)
+collision_layer = 2
+script = ExtResource("1_wqaxb")
+
+[node name="Slime" parent="." instance=ExtResource("1_hvhvv")]
+position = Vector2(-3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -29)
+shape = SubResource("CircleShape2D_sm88q")
